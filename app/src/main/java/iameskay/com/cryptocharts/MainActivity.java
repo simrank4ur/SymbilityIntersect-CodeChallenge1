@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import org.json.JSONException;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mCurrencyRecyclerView;
     private RecyclerView.Adapter mCurrencyAdapter;
     private RecyclerView.LayoutManager mCurrencyLayoutManager;
-    private ProgressBar spinner;
+    private LinearLayout spinner;
 
     private int numCurrenciesToDisplay = 30;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mCurrencyLayoutManager = new LinearLayoutManager(this);
         mCurrencyRecyclerView.setLayoutManager(mCurrencyLayoutManager);
 
-        spinner = findViewById(R.id.progressBar);
+        spinner = findViewById(R.id.progress_bar_layout);
 
         spinner.setVisibility(View.VISIBLE);
         new FetchDataTask().execute(getString(R.string.name_endpoint));

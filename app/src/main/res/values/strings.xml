@@ -4,4 +4,5 @@
     <string name="date">June 4, 2018</string>
     <string name="name_endpoint">https://www.cryptocompare.com/api/data/coinlist/</string>
     <string name="price_endpoint">https://min-api.cryptocompare.com/data/price?fsym=%1$s&amp;tsyms=CAD</string>
+    <string name="loading">Loading</string>
 </resources>

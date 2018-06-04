@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHolder> {
 
     private static ArrayList<Currency> currencies = new ArrayList<>();
+    private static int numFavourites = 0;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView mCurrencyName;
@@ -57,12 +58,12 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
             public void onClick(View view) {
                 if (currencies.get(p).getFavourite()) {
                     currencies.set(p, currencies.get(p).setFavourite(false));
-                    Currency temp = currencies.remove(p);
-                    currencies.add(temp);
+                    numFavourites--;
+                    currencies.add(numFavourites, currencies.remove(p));
                 } else {
                     currencies.set(p, currencies.get(p).setFavourite(true));
-                    Currency temp = currencies.remove(p);
-                    currencies.add(0, temp);
+                    numFavourites++;
+                    currencies.add(numFavourites-1, currencies.remove(p));
                 }
                 notifyDataSetChanged();
             }
